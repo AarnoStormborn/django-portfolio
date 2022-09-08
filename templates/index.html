@@ -1,0 +1,57 @@
+{% extends 'common/base.html' %}
+
+{% block title %}
+    <title>Home</title>
+{% endblock title %}
+    
+{% block body %}
+{% load static %}
+    <!-- <main class="page lanidng-page"> -->
+        <section class="portfolio-block block-intro" style="background-image: url(static/img/logos/sunset.jpg); height: 725px; margin-bottom: 75px; margin-top: 0px;">
+            <div class="container">
+                <div class="about-me" style="padding-top: 17.5%;">
+                    <p>Hello! I am <strong>Harsh Singh</strong>.</br><strong>Data Scientist</strong> - <strong>Backend Developer</strong> - <strong>Machine Learning Engineer</strong></p>
+                </div>
+            </div>
+        </img>
+        </section>
+        <section class="portfolio-block photography">
+            <div class="container">
+                <div class="row g-0">
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="https://www.kaggle.com/harshsingh2209" target="_blank"><img class="img-fluid image" src="{% static 'img/logos/kaggle.jpg' %}"></a></div>
+                    <div class="col-md-5 col-lg-4 item zoom-on-hover"><a href="https://www.linkedin.com/in/harsh-singh-4428241b4/" target="_blank"><img class="img-fluid image" src="{% static 'img/logos/linkedin.jpg' %}"></a></div>
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="https://github.com/AarnoStormborn" target="_blank"><img class="img-fluid image" src="{% static 'img/logos/github.jpg' %}"></a></div>
+                </div>
+            </div>
+        </section>
+        <section class="portfolio-block call-to-action border-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-center align-items-center content">
+                    <h3>Like what you see?</h3><a href="{% url 'contact' %}"><button class="btn btn-outline-primary btn-lg" type="button">Collaborate</button></a>
+                </div>
+            </div>
+        </section>
+        <section class="portfolio-block skills">
+            <div class="container">
+                <div class="heading">
+                    <h2>Special Skills</h2>
+                </div>
+                <div class="row">
+                {% for i in special %}
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0"><i class="icon ion-ios-star-outline"></i></div>
+                            <div class="card-body">
+                                <h3 class="card-title">{{i.name}}</h3>
+                                <p class="card-text">{{i.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <h3>No Special Skills</h3>
+                {% endfor %}
+                </div>
+            </div>
+        </section>
+    <!-- </main> -->
+{% endblock body %}

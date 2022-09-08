@@ -1,0 +1,75 @@
+{% extends 'common/base.html' %}
+
+{% block title %}
+    <title>Resume</title>
+{% endblock title %}
+
+{% block body %}
+<main class="page cv-page">
+    <!-- <section class="portfolio-block block-intro border-bottom">
+        <div class="container">
+            <div class="avatar" style="background-image:url(&quot;assets/img/avatars/avatar.jpg&quot;);"></div>
+            <div class="about-me">
+                <p>Hello! I am <strong>John Smith</strong>. I work as interface and front end developer. I have passion for pixel perfect, minimal and easy to use interfaces.</p><a class="btn btn-outline-primary" role="button" href="#">Hire me</a>
+            </div>
+        </div>
+    </section> -->
+    <section class="portfolio-block cv">
+        <div class="container">
+
+            <div class="work-experience group">
+                <div class="heading">
+                    <h2 class="text-center">Work Experience</h2>
+                </div>
+                {% for w in work %}
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>{{w.position}}</h3>
+                            <h4 class="organization">{{w.cmpName}}</h4>
+                        </div>
+                        <div class="col-md-6"><span class="period">{{w.startDate}} - {{w.endDate}}</span></div>
+                    </div>
+                    <p class="text-muted">{{w.shortDesc}}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="education group">
+                <div class="heading">
+                    <h2 class="text-center">Education</h2>
+                </div>
+                
+                {% for e in education %}
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>{{e.hist}}</h3>
+                            <h4 class="organization">{{e.schName}}</h4>
+                        </div>
+                        <div class="col-6"><span class="period">{{e.startDate}} - {{e.endDate}}</span></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="group">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="skills portfolio-info-card">
+                            <h2 style="font-size: 28px;">Skills</h2>
+                            
+                            {% for skill in skills %}   
+                            <h3>{{skill.skill_name}}</h3>
+                            <div class="progress">
+                                <div class="progress-bar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skill.skill_percent}}%;"><span class="visually-hidden">100%</span></div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+    {% endblock body %}
